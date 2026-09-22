@@ -1,0 +1,89 @@
+using System;
+
+namespace MetodosParametrosRetorno
+{
+    public class MetodosParametrosRetorno
+    {
+        public static double Numeros(double numero1 , double numero2)
+        {
+            double Numeros_;
+            Numeros_ = numero1 + numero2;
+            return Numeros_;
+        }
+        public static double Suma(double sumando_1 , double sumando_2)
+        {
+            double suma_;
+            suma_ = sumando_1 + sumando_2;
+            return suma_;
+        }
+        public static double Diferencia(double minuendo , double sustraendo)
+        {
+            double diferencia_;
+            diferencia_ = minuendo - sustraendo;
+            return diferencia_;
+        }
+        public static double Producto(double factor_1 , double factor_2)
+        {
+            double producto_;
+            producto_ = factor_1 * factor_2;
+            return producto_;
+        }
+        public static double Cosciente(double dividendo , double divisor)
+        {
+            double cosciente_;
+            cosciente_ = dividendo / divisor;
+            return cosciente_;
+        }
+        public static void Main(String[] args)
+        {
+            while (true)
+            {
+               Console.WriteLine("---------");
+            string primerNumero = Console.ReadLine();
+            if (double.TryParse(primerNumero , out double primer_Numero))
+            {
+                Numeros( primer_Numero , 0);
+                string segundoNumero = Console.ReadLine();
+                if (double.TryParse(segundoNumero, out double segundo_Numero))
+                {
+                    Numeros(primer_Numero , segundo_Numero);
+                    string operacion = Console.ReadLine();
+
+                    switch (operacion)
+                    {
+                        case "+":
+                            {
+                                Console.WriteLine( primer_Numero + " + "+ segundo_Numero + " = " + Suma(primer_Numero , segundo_Numero));
+                                break;
+                            }
+                        case "-":
+                            {
+                                Console.WriteLine(primer_Numero + " - " + segundo_Numero + " = " + Diferencia(primer_Numero , segundo_Numero));
+                                break;
+                            }
+                        case "*":
+                            {
+                                Console.WriteLine(primer_Numero + " * " + segundo_Numero + " = " + Producto(primer_Numero , segundo_Numero));
+                                break;
+                            }
+                        case "/":
+                            {
+                                Console.WriteLine(primer_Numero + " / " + segundo_Numero + " = " + Cosciente(primer_Numero , segundo_Numero));
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            } 
+            }
+        }
+    }
+}
